@@ -1,0 +1,55 @@
+version: "3.7"
+services:
+  node-red: #This is the Node-RED container for accessing flows and nodes
+    build: ./node-red/
+    container_name: Node-RED
+    environment:
+      - TZ=Europe/Amsterdam # This is optional but recommended
+      - VIRTUAL_HOST=nodered.localhost # Proxy host is defined here. You can change it if you like
+    ports:
+      - "1880:1880" # Works on this port, but proxy will automatically redirect to port 80 Nice ;)
+    volumes:
+      - ./node-red/data:/data
+    restart: always # Container will automaticly startup
+    networks:
+      - main
+  mosquitto:  # Mosquitto (MQTT) broker nothing crazy. Keep in mind nothing this is a non-secure connection (see mosquitto/config/mosquitto.conf)
+    image: eclipse-mosquitto:2
+    container_name: Mosquitto-Broker
+    volumes: #binding local directories to virtual drives inside the container
+      - ./mosquitto/config/:/mosquitto/config/:ro
+      - ./mosquitto/log/:/mosquitto/log/
+      - ./mosquitto/data/:/mosquitto/data/
+    ports:
+      - "9001:9001"
+      - "1883:1883"
+#      - "1884:1884" # Uncomment this if you want to enable websockets (only when enabled in ./mosquitto/config/mosquitto.conf)
+    restart: always # Container will automatically start up
+    networks:
+      - main
+  web-app: # This is the dashboard UI that the user sees when connecting to a hotspot or navigates to ui.localhost (This is entirely optional)
+    image: nginx
+    container_name: Dashboard-UI
+    ports:
+        - "8000:80" # Nginx opens a webserver on port 8000. We want to expose it on port 80
+    volumes:
+        - ./web-app:/usr/share/nginx/html #Bind web-app directory to nginx its serving directory (no hot reload, but no compose up necessary to update on development)
+    restart: always # Container will automatically start up
+    networks:
+      - main
+    environment:
+    - TZ=Europe/Amsterdam
+    - VIRTUAL_HOST=ui.localhost # Host is define here
+  nginx-proxy:
+      image: jwilder/nginx-proxy
+      container_name: Proxy
+      ports:
+        - "80:80"
+      volumes:
+        - /var/run/docker.sock:/tmp/docker.sock:ro
+      restart: unless-stopped # Container will automatically start up
+      networks:
+      - main
+networks:
+  main: # Added a custom network to access containers by there original name or id (which is much better than a changing IP-address)
+    driver: bridge

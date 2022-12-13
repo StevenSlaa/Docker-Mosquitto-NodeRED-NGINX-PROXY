@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DataNodes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/app.css"/>
+</head>
+<body>
+<iframe id="app-frame"></iframe>
+<div id="overlay">
+    <a href="" id="back-button" class="btn" type="button">< Back</a>
+</div>
+<script>
+    // Helper function to get values from query parameters (using proxy is in this case faster)
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+    });
+    // Change necessary attributes of the back-button and the source of the iframe (quick and dirty)
+    document.getElementById('app-frame').setAttribute('src', params.href ?? null)
+    document.getElementById('back-button').setAttribute('href', params.prev ?? null)
+</script>
+</body>
+</html>

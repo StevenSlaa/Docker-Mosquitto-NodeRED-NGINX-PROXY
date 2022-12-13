@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DataNodes</title>
+    <!--  Make page responsive  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  Load Stylesheet  -->
+    <link rel="stylesheet" href="assets/css/app.css"/>
+</head>
+<body>
+    <!-- Welcome header -->
+    <header>
+        <h1>Welcome to<br/><span class="logo text-gradient">DataNodes</span></h1>
+    </header>
+    <!-- CTA (Call to action) message -->
+    <section>
+        <h3>What do you want to do?</h3>
+    </section>
+    <!-- Button wrapper for apps (add more if you like) -->
+    <section>
+        <button type="button" class="img-button" data-href="http://nodered.localhost" data-description="Create and manage the flow of your connected nodes" style="background-image: url('assets/img/NodeRED-banner.jpg')"></button>
+        <button type="button" class="img-button" data-href="http://nodered.localhost/ui" data-description="Visualize your data based on your flow" style="background-image: url('assets/img/Dashboard-banner.PNG')"></button>
+    </section>
+    <!-- Tool tip wrapper -->
+    <section>
+        <span id="tooltip">...</span>
+    </section>
+    <!-- Include button.js after dom has been loaded (this saves an onload function -> Nice :D) -->
+    <script src="assets/js/button.js"></script>
+</body>
+</html>
