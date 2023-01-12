@@ -50,6 +50,4 @@ docker compose up -d
 
 After this, you can access the containers by going to the following urls:
 
-- Node-RED [http://nodered.localhost/](http://nodered.localhost/)
-
-- NGINX (Dashboard) [http://ui.localhost](https://ui.localhost/)
+[localhost](http://localhost)

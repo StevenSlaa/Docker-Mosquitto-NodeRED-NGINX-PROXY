@@ -14,5 +14,4 @@ This is a simple web application that runs a simple website, you can customize t
 
 You can access the portal (NGINX) via the following urls:
 
-- Via localhost (proxy): [ui.localhost](http://ui.localhost)
-- Via localhost (original port): [localhost:8000](http://localhost:8000)
+- Via localhost: [localhost](http://localhost)

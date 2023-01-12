@@ -20,10 +20,8 @@ You can access Node-RED via the following urls:
 
 ### Node-RED
 
-- Via localhost (proxy): [nodered.localhost](http://nodered.localhost)
 - Via localhost (original port): [localhost:1880](http://localhost:1880)
 
 ### Node-RED Dashboard UI
 
-- Via localhost (proxy): [nodered.localhost/ui](http://nodered.localhost/ui)
 - Via localhost (original port): [localhost:1880/ui](http://localhost:1880/ui)
