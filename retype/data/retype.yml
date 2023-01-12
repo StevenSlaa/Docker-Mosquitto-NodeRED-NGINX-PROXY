@@ -1,0 +1,21 @@
+input: .
+output: .retype
+url: # Add your website address here
+server:
+  port: 80
+  host: 0.0.0.0
+branding:
+  title: Documentation
+  label: Docs
+links:
+- text: Portal
+  link: http://ui.localhost
+- text: Github
+  link: https://github.com/StevenSlaa/Docker-Mosquitto-NodeRED-NGINX-PROXY
+edit:
+  repo: "https://github.com/StevenSlaa/Docker-Mosquitto-NodeRED-NGINX-PROXY"
+  label: Edit on GitHub
+editor:
+  enabled: false # Default is true
+footer:
+  copyright: "&copy; Copyright {{ year }}. All rights reserved."

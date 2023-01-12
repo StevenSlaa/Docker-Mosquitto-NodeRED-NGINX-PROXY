@@ -10,7 +10,7 @@ This is a Low-code programming application for event-driven applications. On top
 
 ## Message Queuing Telemetry Transport (MQTT)
 
-MQTT is a lightweight, publish-subscrib, machine to machine network protocol used for communicating between devices. MQTT is TCP. This means that an MQTT packet is ensured that is is received by the receiving service (broker). In this environment there is an MQTT broker running. Node-RED can listen on specified topics where information is published.
+MQTT is a lightweight, publish-subscribe, machine to machine network protocol used for communicating between devices. MQTT is TCP. This means that an MQTT packet is ensured that is is received by the receiving service (broker). In this environment there is an MQTT broker running. Node-RED can listen on specified topics where information is published.
 
 ## Proxy (NGINX-Proxy)
 
@@ -33,13 +33,13 @@ In this repository the main-node services can be deployed locally on your machin
 ## Clone Repository
 
 ```shell
-git clone https://github.com/JoyceHR/DragonsDenProject.git
+git clone https://github.com/StevenSlaa/Docker-Mosquitto-NodeRED-NGINX-PROXY.git
 ```
 
 Navigate to the correct directory
 
 ```shell
-cd /DragonsDenProject/Nodes/Main-node
+cd /Docker-Mosquitto-NodeRED-NGINX-PROXY
 ```
 
 ## Run the docker compose

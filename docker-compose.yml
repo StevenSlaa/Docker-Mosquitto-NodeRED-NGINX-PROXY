@@ -7,7 +7,7 @@ services:
       - TZ=Europe/Amsterdam # This is optional but recommended
       - VIRTUAL_HOST=nodered.localhost # Proxy host is defined here. You can change it if you like
     ports:
-      - "1880:1880" # Works on this port, but proxy will automatically redirect to port 80 Nice ;)
+      - "1880:1880" # Works on this port, but proxy will automatically redirect to port 80. Nice! ;)
     volumes:
       - ./node-red/data:/data
     restart: always # Container will automaticly startup
@@ -38,17 +38,30 @@ services:
     networks:
       - main
     environment:
-    - TZ=Europe/Amsterdam
-    - VIRTUAL_HOST=ui.localhost # Host is define here
+      - TZ=Europe/Amsterdam
+      - VIRTUAL_HOST=ui.localhost # Host is define here
+  retype:
+    container_name: "Retype"
+    build: ./retype/
+    volumes:
+      - ./retype/data:/app
+    ports:
+      - 3000:80
+    command: "retype watch ."  # or omit
+    networks:
+      - main
+    environment:
+      - TZ=Europe/Amsterdam
+      - VIRTUAL_HOST=docs.localhost # Host is define here
   nginx-proxy:
-      image: jwilder/nginx-proxy
-      container_name: Proxy
-      ports:
-        - "80:80"
-      volumes:
-        - /var/run/docker.sock:/tmp/docker.sock:ro
-      restart: unless-stopped # Container will automatically start up
-      networks:
+    image: jwilder/nginx-proxy
+    container_name: Proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    restart: unless-stopped # Container will automatically start up
+    networks:
       - main
 networks:
   main: # Added a custom network to access containers by there original name or id (which is much better than a changing IP-address)
