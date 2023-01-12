@@ -17,13 +17,13 @@ services:
     image: eclipse-mosquitto:2
     container_name: Mosquitto-Broker
     volumes: #binding local directories to virtual drives inside the container
-      - ./mosquitto/config/:/mosquitto/config/:ro
+      - ./mosquitto/config/:/mosquitto/config/
       - ./mosquitto/log/:/mosquitto/log/
       - ./mosquitto/data/:/mosquitto/data/
     ports:
       - "9001:9001"
       - "1883:1883"
-#      - "1884:1884" # Uncomment this if you want to enable websockets (only when enabled in ./mosquitto/config/mosquitto.conf)
+      - "1884:1884" # websockets
     restart: always # Container will automatically start up
     networks:
       - main
