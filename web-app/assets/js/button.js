@@ -12,7 +12,8 @@ for (const button of buttons) {
         tooltip.classList.remove('active'); // Hide tooltip
     })
     button.addEventListener('click', () => {
-        const href = button.getAttribute('data-href') ?? ''; // Get href from attribute
+        let href = button.getAttribute('data-href') ?? ''; // Get href from attribute
+        href = href.replace('{hostname}', location.hostname)
         window.location.href = `${window.location.href}app.html?href=${href}&prev=${window.location.href}` // Go to url with query params
     })
 }
