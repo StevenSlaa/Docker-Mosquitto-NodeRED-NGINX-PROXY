@@ -42,6 +42,7 @@ services:
     ports:
       - 3000:80
     command: "retype watch ."  # or omit
+    restart: always # Container will automatically start up
     networks:
       - main
 networks:
