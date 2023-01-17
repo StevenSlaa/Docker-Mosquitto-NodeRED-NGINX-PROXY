@@ -4,8 +4,8 @@
 #VOLUME /app
 #ENTRYPOINT ["retype"]
 
-FROM retypeapp:latest
-RUN npm install retypeapp --global
+# Debian
+FROM retypeapp/retype:latest
 WORKDIR /app
 VOLUME /app
 ENTRYPOINT ["retype"]
