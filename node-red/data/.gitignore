@@ -1,3 +1,4 @@
 *
 !.gitignore
-!package.json
+!flows.json
+!settings.js
