@@ -2,7 +2,7 @@
     {
         "id": "61c5e16b0be4839c",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Tutorial",
         "disabled": false,
         "info": "",
         "env": []
@@ -40,8 +40,8 @@
         "z": "61c5e16b0be4839c",
         "name": "Welcome to Link-Nodes",
         "info": "",
-        "x": 460,
-        "y": 320,
+        "x": 660,
+        "y": 360,
         "wires": []
     },
     {
@@ -65,8 +65,8 @@
         "topic": "",
         "payload": "Hello World",
         "payloadType": "str",
-        "x": 480,
-        "y": 440,
+        "x": 520,
+        "y": 420,
         "wires": [
             [
                 "a7979b69687fa18e"
@@ -86,8 +86,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1060,
-        "y": 440,
+        "x": 820,
+        "y": 420,
         "wires": []
     },
     {
@@ -96,8 +96,8 @@
         "z": "61c5e16b0be4839c",
         "name": "About this node",
         "info": "You can view this by clicking on the bug icon in the top right corner",
-        "x": 1060,
-        "y": 480,
+        "x": 820,
+        "y": 460,
         "wires": []
     },
     {
@@ -106,8 +106,8 @@
         "z": "61c5e16b0be4839c",
         "name": "About this node",
         "info": "Click on the square on left side of the node",
-        "x": 460,
-        "y": 480,
+        "x": 500,
+        "y": 460,
         "wires": []
     }
 ]
