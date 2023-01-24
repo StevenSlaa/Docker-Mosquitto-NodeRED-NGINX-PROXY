@@ -34,6 +34,16 @@ services:
     restart: always # Container will automatically start up
     networks:
       - main
+  nodes-web-app: # This is the dashboard UI that the user sees when connecting to a hotspot or navigates to ui.localhost (This is entirely optional)
+    image: nginx
+    container_name: Nodes-web-app
+    ports:
+      - "81:80" # Nginx opens a webserver on port 8000. We want to expose it on port 80
+    volumes:
+      - ./nodes-web-app:/usr/share/nginx/html #Bind web-app directory to nginx its serving directory (no hot reload, but no compose up necessary to update on development)
+    restart: always # Container will automatically start up
+    networks:
+      - main
   retype:
     container_name: "Retype"
     build: ./retype/
